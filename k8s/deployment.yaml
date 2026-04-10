@@ -47,7 +47,7 @@ spec:
       protocol: TCP
   type: ClusterIP
 ---
-apiVersion: v1
+apiVersion: networking.k8s.io/v11
 kind: Ingress
 metadata:
   name: hello-app

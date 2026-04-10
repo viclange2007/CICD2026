@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-app
-  namespace: qa
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -17,13 +17,13 @@ spec:
     spec:
       containers:
         - name: hello-app
-          image: DOCKER_HUB_USERNAME/hello-app:dev
+          image: viclange20/hello-app:dev
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
             - name: APP_ENV
-              value: qa
+              value: dev
           resources:
             requests:
               cpu: "50m"
@@ -36,7 +36,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hello-app
-  namespace: qa
+  namespace: dev
 spec:
   selector:
     app: hello-app
@@ -51,7 +51,7 @@ apiVersion: networking.k8s.io/v11
 kind: Ingress
 metadata:
   name: hello-app
-  namespace: qa
+  namespace: dev
   annotations:
     kubernetes.io/ingress.class: "traefik"
 spec:
