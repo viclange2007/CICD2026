@@ -124,7 +124,7 @@ jobs:
       # ------------------------------------------------------------ 
       - name: Force rollout annotation
         run: |
-          kubectl annotate deployment hello-app kubernetes.io/change-cause="$(date)" --overwrite -n ${{ steps.vars.outputs.K8S_ENV }}
+          kubectl annotate deployment hello-app kubernetes.io/change-cause="$(date)" --overwrite -n prod
       # ------------------------------------------------------------
       # Étape 9 : Déployer dans Kubernetes
       # kubectl apply met à jour ou crée les ressources
