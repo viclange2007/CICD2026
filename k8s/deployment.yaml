@@ -56,7 +56,7 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-# ajouter dans le /etc/host
+# ajouter dans le /etc/hosts
 # 192.168.21.100 hello.cluster.local
     - host: hello.cluster.local
       http:
