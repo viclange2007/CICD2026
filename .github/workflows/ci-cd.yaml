@@ -131,11 +131,11 @@ jobs:
       # ------------------------------------------------------------
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f k8s/deployment.yaml -n ${{ steps.vars.outputs.K8S_ENV }}
+          kubectl apply -f k8s/deployment.yaml -n prod
       # ------------------------------------------------------------
       # Étape 10 : Vérifier le rollout
       # Attend que le déploiement soit terminé et confirme que tout fonctionne
       # ------------------------------------------------------------ 
       - name: Verify rollout
         run: |
-          kubectl rollout status deployment/hello-app -n ${{ steps.vars.outputs.K8S_ENV }}
+          kubectl rollout status deployment/hello-app -n prod
